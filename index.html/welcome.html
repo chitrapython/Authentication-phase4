@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome - UserAuth</title>
+    <style>
+        /* =====================
+           Reset & Global Styles
+        ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* =====================
+           Header
+        ===================== */
+        header {
+            background: #1f3a60;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: #ffffff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #00bfa5;
+        }
+
+        /* =====================
+           Main Content
+        ===================== */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .welcome-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .welcome-card h2 {
+            color: #1f3a60;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .welcome-card p {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .welcome-card button {
+            background: #1f3a60;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .welcome-card button:hover {
+            background: #00bfa5;
+            box-shadow: 0 0 8px rgba(0,191,165,0.5);
+        }
+
+        /* =====================
+           Footer
+        ===================== */
+        footer {
+            background: #1f3a60;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px){
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header nav {
+                margin-top: 10px;
+            }
+            .welcome-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>User Authentication</h1>
+    <nav>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </nav>
+</header>
+
+<main>
+    <div class="welcome-card">
+        <h2>Welcome!</h2>
+        <p id="welcomeMessage"></p>
+        <button id="logoutBtn">Logout</button>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 UserAuth. All Rights Reserved.
+</footer>
+
+<script>
+    // Display welcome message
+    const username = localStorage.getItem("loggedInUser");
+    const welcomeMessage = document.getElementById("welcomeMessage");
+
+    if (!username) {
+        window.location.href = "login.html"; // redirect if not logged in
+    } else {
+        welcomeMessage.innerText = `Hello, ${username}! You are successfully logged in.`;
+    }
+
+    // Logout button functionality
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    });
+</script>
+</body>
+</html>
+
+
+
+

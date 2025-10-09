@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - UserAuth</title>
+    <style>
+        /* =====================
+           Reset & Global Styles
+        ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* =====================
+           Header
+        ===================== */
+        header {
+            background: rgba(31,58,96,0.9);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: #ffffff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #00bfa5;
+            text-shadow: 0 0 3px rgba(0,191,165,0.5);
+        }
+
+        /* =====================
+           Main Content
+        ===================== */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #1f3a60;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+        }
+
+        /* =====================
+           Forms
+        ===================== */
+        form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            border: 1px solid #ccd6dd;
+            transition: 0.3s;
+        }
+
+        form:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+        }
+
+        /* Input fields */
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin: 12px 0;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ccd6dd;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .input-container input:focus {
+            border-color: #00bfa5;
+            box-shadow: 0 0 8px rgba(0,191,165,0.2);
+            outline: none;
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+
+        /* Form messages */
+        #registerMessage {
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* Buttons */
+        form button {
+            width: 100%;
+            padding: 16px;
+            background: #1f3a60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #00bfa5;
+            box-shadow: 0 0 8px rgba(0,191,165,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(31,58,96,0.9);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px){
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header nav {
+                margin-top: 10px;
+            }
+            form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Authentication</h1>
+        <nav>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <script src="auth.js"></script>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Create an Account</h2>
+        <form id="registerForm">
+            <div class="input-container">
+                <span class="icon">👤</span>
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-container">
+                <span class="icon">📧</span>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-container">
+                <span class="icon">🔒</span>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="input-container">
+                <span class="icon">🔒</span>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit">Register</button>
+            <p id="registerMessage"></p>
+        </form>
+    </main>
+
+    <footer>
+        &copy; 2025 UserAuth. All Rights Reserved.
+    </footer>
+</body>
+</html>
